@@ -1,0 +1,35 @@
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+
+.back-to-top {
+
+    cursor: pointer;
+    position: fixed;
+    bottom: 30px;
+    right: 10px;
+    display: none;
+}
+
+/* / modal style */
+
+.modal-content{
+    background-color: #f9f5f1;
+    font-weight: bold;
+}
+
+.close span{
+    color: #01807b;
+}
+
+.modal-header{
+    border: none;
+    height: 15px;
+}

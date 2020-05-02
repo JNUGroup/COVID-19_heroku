@@ -1,0 +1,20 @@
+<!-- <p>footer works!</p> -->
+<!-- <div class="clear" style="height: 50px !important;">
+</div> -->
+
+<a id="back-to-top" href="#" class="btn btn-dark back-to-top" role="button" title="" data-toggle="tooltip" data-placement="left"
+data-original-title="Click to return on the top page" >Top</a>
+
+<span class="footer">
+    <span class="contact">
+        Licensed under MIT. Built by <a href="https://github.com/guohaoyu110">Haoyu Guo</a> and <a href="https://github.com/njuxty">Tianyi Xu</a>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+    </span>
+    
+    <form id="subscribe" [formGroup]="subscribeForm" (ngSubmit)="onSubmit(subscribeForm)" class="subscribe" style="display: inline">
+        <input id="emailInput" type="email" formControlName="email" placeholder="Email Address">
+        <button type = 'submit'>Subscribe</button>
+    </form>
+</span>
