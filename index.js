@@ -13,7 +13,7 @@ var totalcases = 0;
 var emailaddress = new Set();
 var emailaddresslist = [];
 
-const port = 7777; //cannot use ports like 6000
+const port = process.env.PORT || 7777; //cannot use ports like 6000
 
 // get data used for presenting total numbers at'home'
 async function getBase(){
@@ -167,7 +167,7 @@ app.route('/notify').get(function(req,res)
     res.end();
 });
 
-app.listen(process.env.PORT || port, err => {
+app.listen(port, err => {
     console.log(`Listening on port: ${port}`);
 })
 
