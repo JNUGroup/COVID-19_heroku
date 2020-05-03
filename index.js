@@ -30,11 +30,7 @@ const forceSSL = function() {
   // middleware
 app.use(forceSSL());
 
-app.use(express.static(__dirname + '/dist/covid19-tracker'));
 
-app.get('/*', function(req, res){
-    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
-});
 
 // get data used for presenting total numbers at'home'
 async function getBase(){
@@ -190,7 +186,11 @@ app.route('/notify').get(function(req,res)
 
 
 console.log('__dirname: ', __dirname);
+app.use(express.static(__dirname + '/dist/covid19-tracker'));
 
+app.get('/*', function(req, res){
+    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
+});
 
 app.listen(process.env.PORT || 7777, () => {
     console.log(`Listening on port`);
