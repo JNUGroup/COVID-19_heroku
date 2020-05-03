@@ -15,7 +15,7 @@ var emailaddress = new Set();
 var emailaddresslist = [];
 
 
-
+const port = process.env.PORT || 7777;
 // get data used for presenting total numbers at'home'
 async function getBase(){
     const base_url = "https://corona.lmao.ninja/v2/all";
@@ -176,8 +176,10 @@ app.get('/*', function(req, res){
     res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
 });
 
-app.listen(process.env.PORT || 7777, () => {
-    console.log(`Listening on port`);
+app.set('port',port);
+
+app.listen(port, () => {
+    console.log(`Listening on port:${port}`);
 });
 
 // module.exports = {
