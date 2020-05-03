@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "node index.js",
     "build": "ng build",
-    "postinstall": "ng build --aot --prod",
     "heroku-postbuild": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",

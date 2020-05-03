@@ -14,23 +14,11 @@ var totalcases = 0;
 var emailaddress = new Set();
 var emailaddresslist = [];
 
-// const port = process.env.PORT || 7777; //cannot use ports like 6000
+app.use(express.static(__dirname + '/dist/covid19-tracker'));
 
-const forceSSL = function() {
-    return function (req, res, next) {
-      if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(['https://', req.get('Host'), req.url].join(''));
-      }
-      next();
-    }
-  }
-  
-  // Instruct the app
-  // to use the forceSSL
-  // middleware
-app.use(forceSSL());
-
-
+app.get('/*', function(req, res){
+    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
+});
 
 // get data used for presenting total numbers at'home'
 async function getBase(){
@@ -186,11 +174,7 @@ app.route('/notify').get(function(req,res)
 
 
 console.log('__dirname: ', __dirname);
-app.use(express.static(__dirname + '/dist/covid19-tracker'));
 
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
-});
 
 app.listen(process.env.PORT || 7777, () => {
     console.log(`Listening on port`);
