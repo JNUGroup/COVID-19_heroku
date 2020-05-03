@@ -170,10 +170,10 @@ app.route('/notify').get(function(req,res)
 
 
 // console.log('__dirname: ', __dirname);
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/covid19-tracker'));
 
 app.get('/*', function(req, res){
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
 });
 
 app.listen(process.env.PORT || 7777, () => {
