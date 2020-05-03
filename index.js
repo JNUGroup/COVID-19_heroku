@@ -180,9 +180,10 @@ app.route('/notify').get(function(req,res)
 //   // to use the forceSSL
 //   // middleware
 // app.use(forceSSL());
-
+console.log('__dirname: ', __dirname);
 app.use(express.static(__dirname + '/src'));
-app.get('/*', function(req, res){
+// __dirname tells you the absolute path of the directory containing the currently executing file. 
+app.get('*', function(req, res){
     res.sendFile(path.join(__dirname + '/src/index.html'));
 });
 
