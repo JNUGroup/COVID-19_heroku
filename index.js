@@ -14,7 +14,7 @@ var totalcases = 0;
 var emailaddress = new Set();
 var emailaddresslist = [];
 
-const port = process.env.PORT || 7777; //cannot use ports like 6000
+// const port = process.env.PORT || 7777; //cannot use ports like 6000
 
 const forceSSL = function() {
     return function (req, res, next) {
@@ -188,24 +188,12 @@ app.route('/notify').get(function(req,res)
     res.end();
 });
 
-// const forceSSL = function() {
-//     return function (req, res, next) {
-//       if (req.headers['x-forwarded-proto'] !== 'https') {
-//         return res.redirect(['https://', req.get('Host'), req.url].join(''));
-//       }
-//       next();
-//     }
-//   }
-  
-//   // Instruct the app
-//   // to use the forceSSL
-//   // middleware
-// app.use(forceSSL());
+
 console.log('__dirname: ', __dirname);
 
 
-app.listen(port, err => {
-    console.log(`Listening on port: ${port}`);
+app.listen(process.env.PORT || 7777, () => {
+    console.log(`Listening on port`);
 });
 
 module.exports = {
