@@ -15,11 +15,21 @@ var emailaddresslist = [];
 
 const port = process.env.PORT || 7777; //cannot use ports like 6000
 
+const forceSSL = function() {
+    return function (req, res, next) {
+      if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(['https://', req.get('Host'), req.url].join(''));
+      }
+      next();
+    }
+  }
+  
+  // Instruct the app
+  // to use the forceSSL
+  // middleware
+app.use(forceSSL());
 
 app.use(express.static(__dirname + '/dist/covid19-tracker'));
-// __dirname tells you the absolute path of the directory containing the currently executing file. 
-
-
 
 app.get('/*', function(req, res){
     res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
