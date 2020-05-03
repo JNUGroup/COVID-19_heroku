@@ -183,13 +183,15 @@ app.route('/notify').get(function(req,res)
 console.log('__dirname: ', __dirname);
 app.use(express.static(__dirname + '/src'));
 // __dirname tells you the absolute path of the directory containing the currently executing file. 
-app.get('*', function(req, res){
-    res.sendFile(path.join(__dirname + '/src/index.html'));
-});
+
 
 app.listen(port, err => {
     console.log(`Listening on port: ${port}`);
 })
+
+app.get('/*', function(req, res){
+    res.sendFile(path.join(__dirname + '/src/index.html'));
+});
 
 module.exports = {
     isEmail: isEmail,
