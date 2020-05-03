@@ -15,6 +15,16 @@ var emailaddresslist = [];
 
 const port = process.env.PORT || 7777; //cannot use ports like 6000
 
+
+app.use(express.static(__dirname + '/dist/covid19-tracker'));
+// __dirname tells you the absolute path of the directory containing the currently executing file. 
+
+
+
+app.get('/*', function(req, res){
+    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
+});
+
 // get data used for presenting total numbers at'home'
 async function getBase(){
     const base_url = "https://corona.lmao.ninja/v2/all";
@@ -74,8 +84,8 @@ async function getEmailData(){
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'tianyi.usc@gmail.com',
-    pass: '**********',
+    user: 'harryguo.usc@gmail.com',
+    pass: 'gydbej-xirdy1-jaZnup',
   }
 });
 
@@ -181,14 +191,7 @@ app.route('/notify').get(function(req,res)
 //   // middleware
 // app.use(forceSSL());
 console.log('__dirname: ', __dirname);
-app.use(express.static(__dirname + '/dist/covid19-tracker'));
-// __dirname tells you the absolute path of the directory containing the currently executing file. 
 
-
-
-app.get('/*', function(req, res){
-    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
-});
 
 app.listen(port, err => {
     console.log(`Listening on port: ${port}`);
