@@ -181,13 +181,13 @@ app.route('/notify').get(function(req,res)
 //   // middleware
 // app.use(forceSSL());
 console.log('__dirname: ', __dirname);
-app.use(express.static(__dirname + '/dist/frontend'));
+app.use(express.static(__dirname + '/dist/covid19-tracker'));
 // __dirname tells you the absolute path of the directory containing the currently executing file. 
 
 
 
 app.get('/*', function(req, res){
-    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/covid19-tracker/index.html'));
 });
 
 app.listen(port, err => {
