@@ -181,7 +181,7 @@ app.route('/notify').get(function(req,res)
 //   // middleware
 // app.use(forceSSL());
 console.log('__dirname: ', __dirname);
-app.use(express.static(__dirname + '/src'));
+app.use(express.static(__dirname + '/dist/frontend'));
 // __dirname tells you the absolute path of the directory containing the currently executing file. 
 
 
@@ -190,7 +190,7 @@ app.listen(port, err => {
 })
 
 app.get('/*', function(req, res){
-    res.sendFile(path.join(__dirname + '/src/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
 });
 
 module.exports = {
