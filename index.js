@@ -167,19 +167,19 @@ app.route('/notify').get(function(req,res)
     res.end();
 });
 
-const forceSSL = function() {
-    return function (req, res, next) {
-      if (req.headers['x-forwarded-proto'] !== 'https') {
-        return res.redirect(['https://', req.get('Host'), req.url].join(''));
-      }
-      next();
-    }
-  }
+// const forceSSL = function() {
+//     return function (req, res, next) {
+//       if (req.headers['x-forwarded-proto'] !== 'https') {
+//         return res.redirect(['https://', req.get('Host'), req.url].join(''));
+//       }
+//       next();
+//     }
+//   }
   
-  // Instruct the app
-  // to use the forceSSL
-  // middleware
-app.use(forceSSL());
+//   // Instruct the app
+//   // to use the forceSSL
+//   // middleware
+// app.use(forceSSL());
 
 app.use(express.static(__dirname + '/src'));
 app.get('/*', function(req, res){
