@@ -15,7 +15,7 @@ var emailaddress = new Set();
 var emailaddresslist = [];
 
 
-const port = process.env.PORT || 7777;
+const port = process.env.PORT || 3001;
 // get data used for presenting total numbers at'home'
 async function getBase(){
     const base_url = "https://corona.lmao.ninja/v2/all";
