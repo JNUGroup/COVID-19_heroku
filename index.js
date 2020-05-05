@@ -4,6 +4,7 @@ const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
 const nodemailer = require('nodemailer');
+const http = require('http');
 const fs = require('fs');
 const cors = require('cors')
 var stateinfo = [];
@@ -178,9 +179,12 @@ app.get('/*', function(req, res){
 
 app.set('port',port);
 
-app.listen(port, () => {
-    console.log(`Listening on port:${port}`);
+const server = http.createServer(app);
+server.listen(port, () => {
+    console.log(`Listening on port:${port}`)
 });
+
+
 
 // module.exports = {
 //     isEmail: isEmail,
