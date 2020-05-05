@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-
+/dist
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -13,6 +13,7 @@
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
+/node_modules
 
 # IDEs and editors
 /.idea
