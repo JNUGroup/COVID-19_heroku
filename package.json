@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "dev": "ng serve",
     "start": "node index.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --aot --prod",
+    "deploy": "git push origin master && git push heroku master"
   },
   "private": true,
   "dependencies": {
