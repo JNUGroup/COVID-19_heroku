@@ -18,6 +18,18 @@ var emailaddresslist = [];
 
 const port = process.env.PORT || 3001;
 // get data used for presenting total numbers at'home'
+
+const forceSSL = function() {
+    return function (req, res, next) {
+      if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect(
+         ['https://', req.get('Host'), req.url].join('')
+        );
+      }
+      next();
+    }
+  }
+
 async function getBase(){
     const base_url = "https://corona.lmao.ninja/v2/all";
     fetch(base_url).then(function(response) {
@@ -76,8 +88,8 @@ async function getEmailData(){
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'harryguo.usc@gmail.com',
-    pass: 'gydbej-xirdy1-jaZnup',
+    user: 'tianyi.usc@gmail.com',
+    pass: '20120823zhima',
   }
 });
 
@@ -169,7 +181,7 @@ app.route('/notify').get(function(req,res)
     res.end();
 });
 
-
+app.use(forceSSL());
 // console.log('__dirname: ', __dirname);
 app.use(express.static(__dirname + '/dist/covid19-tracker'));
 
