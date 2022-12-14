@@ -28,7 +28,7 @@
     "cors": "^2.8.5",
     "cross-fetch": "^3.0.4",
     "enhanced-resolve": "^4.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http": "0.0.1-security",
     "leaflet": "^1.6.0",
     "locutus": "^2.0.11",
